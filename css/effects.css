@@ -1,0 +1,328 @@
+/* ====================================================================
+   BeeDog · 像素游戏风 · 微动效与彩蛋层 effects.css v2.0
+   只放"交互反馈"和"装饰彩蛋",基础样式见 style.css
+   ==================================================================== */
+
+/* ========== 通用 hover 脉冲 ========== */
+.card-hover {
+    position: relative;
+}
+
+.card-hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 0 solid var(--bee-yellow);
+    pointer-events: none;
+    transition: border-width var(--t-fast) var(--ease-pop);
+    mix-blend-mode: screen;
+}
+
+.card-hover:hover::after {
+    border-width: 4px;
+}
+
+/* ========== 图标悬停:抖动+弹跳 ========== */
+.icon-hover {
+    display: inline-block;
+    transition: transform var(--t-normal) var(--ease-pop);
+}
+
+.icon-hover:hover {
+    animation: icon-jump 0.5s var(--ease-pop);
+}
+
+@keyframes icon-jump {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    30%      { transform: translateY(-12px) rotate(-8deg) scale(1.1); }
+    60%      { transform: translateY(0)   rotate(8deg)  scale(1.05); }
+}
+
+/* ========== 按钮点击涟漪(像素方块扩散) ========== */
+.btn {
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: var(--ripple-y, 50%);
+    left: var(--ripple-x, 50%);
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.5s;
+    opacity: 0;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    transition: 0s;
+}
+
+/* ========== 鼠标悬停尾随粒子(由 JS 注入 .dust) ========== */
+.dust {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--bee-yellow);
+    pointer-events: none;
+    z-index: 9998;
+    box-shadow: 0 0 6px var(--bee-yellow);
+    animation: dust-fade 0.6s ease-out forwards;
+}
+
+@keyframes dust-fade {
+    0%   { transform: translate(0,0) scale(1);  opacity: 1; }
+    100% { transform: translate(var(--dx, 0), var(--dy, 20px)) scale(0); opacity: 0; }
+}
+
+/* ========== 蜜蜂跟随光标 ========== */
+.bee-cursor {
+    position: fixed;
+    display: none;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.08s linear;
+    filter: drop-shadow(2px 2px 0 var(--bee-yellow-dark));
+    will-change: transform;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.bee-cursor.hidden { opacity: 0; }
+
+/* ========== "+1 EXP" 点击积分提示 ========== */
+.exp-pop {
+    position: fixed;
+    color: var(--bee-yellow);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 2px 2px 0 var(--bee-black);
+    pointer-events: none;
+    z-index: 9999;
+    animation: exp-rise 0.9s ease-out forwards;
+    letter-spacing: 1px;
+}
+
+@keyframes exp-rise {
+    0%   { transform: translateY(0)   scale(0.5); opacity: 0; }
+    20%  { transform: translateY(-14px) scale(1.2); opacity: 1; }
+    100% { transform: translateY(-60px) scale(0.8); opacity: 0; }
+}
+
+/* ========== 得分板(固定在右上角) ========== */
+.score-hud {
+    position: fixed;
+    top: 84px;
+    right: 20px;
+    z-index: 999;
+    background: var(--bee-black);
+    color: var(--bee-yellow);
+    border: 3px solid var(--bee-yellow);
+    box-shadow: 4px 4px 0 var(--bee-yellow-dark);
+    padding: 8px 14px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s var(--ease-pop);
+}
+
+.score-hud:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.score-hud .score-label { opacity: 0.7; }
+.score-hud .score-value { color: var(--bee-yellow-bright); font-size: 14px; }
+
+.score-hud .score-bee {
+    display: inline-block;
+    animation: bee-bob 1s ease-in-out infinite;
+}
+
+/* ========== Konami 触发彩蛋:全屏 "BEE RAIN" ========== */
+.bee-rain-drop {
+    position: fixed;
+    top: -40px;
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 9997;
+    animation: bee-fall linear forwards;
+}
+
+@keyframes bee-fall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0.1;}
+}
+
+/* ========== 点击按钮时的星星爆炸 ========== */
+.spark {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--bee-yellow);
+    pointer-events: none;
+    z-index: 9999;
+    animation: spark-burst 0.6s ease-out forwards;
+}
+
+@keyframes spark-burst {
+    0%   { transform: translate(0,0) scale(1) rotate(0);   opacity: 1; }
+    100% { transform: translate(var(--sx, 30px), var(--sy, 30px)) scale(0) rotate(180deg); opacity: 0; }
+}
+
+/* ========== hero-content 底部提示 ========== */
+.hero-content .hidden-hint {
+    position: absolute;
+    bottom: 8px;
+    left: 24px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--bee-yellow-dark);
+    opacity: 0;
+    letter-spacing: 2px;
+    pointer-events: none;
+    transition: opacity 0.4s;
+}
+
+.hero-content:hover .hidden-hint {
+    opacity: 0.6;
+}
+
+/* ========== 卡片翻转彩蛋:双击项目卡 ========== */
+.project-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.project-card.flipped {
+    animation: flip-card 0.8s var(--ease-pop);
+}
+
+@keyframes flip-card {
+    0%   { transform: rotateY(0)    translate(-4px, -4px) rotate(-0.5deg); }
+    50%  { transform: rotateY(180deg) translate(-4px, -4px) scale(0.95); }
+    100% { transform: rotateY(360deg) translate(-4px, -4px) rotate(-0.5deg); }
+}
+
+/* ========== 统计数字 hover 时滚动 ========== */
+.stat-item:hover .stat-number {
+    animation: number-flicker 0.4s steps(4);
+}
+
+@keyframes number-flicker {
+    0%   { opacity: 1; transform: translateY(0); }
+    25%  { opacity: 0.3; transform: translateY(-2px) skewX(-3deg); }
+    50%  { opacity: 1; transform: translateY(2px); }
+    75%  { opacity: 0.3; transform: translateY(-1px) skewX(3deg); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Easter-egg 隐藏按钮:左下角的星星 ========== */
+.secret-star {
+    position: fixed;
+    left: 12px;
+    bottom: 12px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    color: var(--bee-yellow);
+    border: none;
+    font-size: 22px;
+    z-index: 999;
+    opacity: 0.2;
+    transition: all 0.3s var(--ease-pop);
+    animation: star-twinkle 3s ease-in-out infinite;
+}
+
+.secret-star:hover {
+    opacity: 1;
+    transform: scale(1.6) rotate(15deg);
+    filter: drop-shadow(0 0 10px var(--bee-yellow));
+}
+
+@keyframes star-twinkle {
+    0%, 100% { opacity: 0.2; }
+    50%      { opacity: 0.6; }
+}
+
+/* ========== Toast(小消息框) ========== */
+.toast {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(40px);
+    background: var(--bee-black);
+    color: var(--bee-yellow);
+    border: 3px solid var(--bee-yellow);
+    padding: 12px 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    box-shadow: 4px 4px 0 var(--bee-yellow-dark);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s var(--ease-pop);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========== 页面加载入场:扫描线掠过 ========== */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(255, 210, 63, 0.1) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    animation: scanline-intro 2s ease-out 0.2s forwards;
+    z-index: 9996;
+}
+
+@keyframes scanline-intro {
+    0%   { transform: translateY(-100vh); opacity: 0.5; }
+    80%  { opacity: 0.5; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* ========== 页面标题"说明书"三字单独弹跳 ========== */
+.hero-subtitle {
+    animation: stamp-in 0.6s var(--ease-pop) 0.3s both;
+}
+@keyframes stamp-in {
+    0%   { transform: scale(2) rotate(-15deg); opacity: 0; }
+    60%  { transform: scale(0.9) rotate(4deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* ========== reduced-motion 关闭跳动 ========== */
+@media (prefers-reduced-motion: reduce) {
+    .bee-cursor,
+    .dust,
+    .spark,
+    .exp-pop,
+    .bee-rain-drop,
+    .secret-star,
+    body::after {
+        animation: none !important;
+    }
+}
