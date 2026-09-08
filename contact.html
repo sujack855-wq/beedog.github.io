@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/outpost.css?v=20260908">
 </head>
 <body>
     <!-- 导航栏 -->
@@ -22,7 +23,7 @@
                     <span class="brand-text">BeeDog</span>
                 </a>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">首页</a></li>
                 <li><a href="about.html">关于我</a></li>
                 <li><a href="portfolio.html">作品集</a></li>
@@ -31,11 +32,11 @@
                 <li><a href="travel.html">我去过的地方</a></li>
                 <li><a href="contact.html" class="active">联系方式</a></li>
             </ul>
-            <div class="hamburger">
+            <button type="button" class="hamburger" id="hamburger" aria-label="打开导航" aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -54,7 +55,8 @@
             <div class="contact-grid">
                 <!-- 联系表单 -->
                 <div class="contact-form-wrapper">
-                    <h2 class="form-title">发送消息</h2>
+                    <h2 class="form-title">写一封邮件</h2>
+                    <p class="contact-note">填写后会打开你的邮件应用，内容会带入草稿。请在邮件应用中确认发送；本站不会直接提交消息。也可以复制右侧邮箱联系我。</p>
                     <form class="contact-form" onsubmit="handleSubmit(event)">
                         <div class="form-group">
                             <label for="name">姓名 *</label>
@@ -73,7 +75,7 @@
                             <textarea id="message" name="message" rows="6" required placeholder="请输入您的留言内容..."></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
-                            <span>发送消息</span>
+                            <span>打开邮件应用</span>
                             <span class="btn-icon">→</span>
                         </button>
                     </form>
@@ -103,7 +105,7 @@
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
                             <h3>位置</h3>
-                            <p>杭州，中国</p>
+                            <p>成都，中国</p>
                         </div>
                     </div>
 
@@ -156,7 +158,7 @@
                     <a href="guestbook.html">留言板</a>
                     <a href="contact.html">联系方式</a>
                 </div>
-                <p class="footer-copyright">© 2025 苏笔辉. All rights reserved.</p>
+                <p class="footer-copyright">© 2026 苏笔辉. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -173,19 +175,14 @@
                 message: document.getElementById('message').value
             };
             
-            // 这里是演示，实际使用时需要连接后端API
-            alert(`感谢您的留言，${formData.name}！\n\n我会尽快回复您的消息。\n\n（演示版本，实际使用时需要连接后端API）`);
-            
-            // 清空表单
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('subject').value = '';
-            document.getElementById('message').value = '';
+            const subject = formData.subject.trim() || '来自 BeeDog 网站的联系';
+            const body = `姓名：${formData.name}\n回复邮箱：${formData.email}\n\n${formData.message}`;
+            window.location.href = 'mailto:s1870567841@163.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
         }
 
-        // 加载主脚本
-        // 注意：由于这是一个静态页面，暂时不加载完整的main.js，避免冲突
-        console.log('🐝 蜜蜂狗BeeDog的说明书 联系方式页面已加载！');
+
     </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css?v=20260709">
     <link rel="stylesheet" href="css/effects.css?v=20260709">
     <link rel="stylesheet" href="css/pixel-extras.css">
+    <link rel="stylesheet" href="css/outpost.css?v=20260908">
 </head>
 <body>
     <div class="score-hud" id="scoreHud"><span class="score-bee">🐝</span><span class="score-label">SCORE</span><span class="score-value" id="scoreValue">0000</span></div>
@@ -29,7 +30,7 @@
                 <li><a href="guestbook.html">留言板</a></li>
                 <li><a href="contact.html">联系方式</a></li>
             </ul>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <button type="button" class="hamburger" id="hamburger" aria-label="打开导航" aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
@@ -44,76 +45,16 @@
         <div class="container">
             <div class="now-wrap">
                 <div class="now-hero">
-                    <div class="now-date" id="nowDate">UPDATED · 2026.04</div>
-                    <div class="now-headline">
-                        在 <span style="color:var(--bee-yellow-bright)">腾讯</span> 做模型评测相关工作,
-                        同时在试图搞懂怎么把模型能力变成可观察、可比较、可迭代的标准。
-                    </div>
-                    <p style="color:var(--text-secondary); line-height:1.9; margin-top:18px;">
-                        受 <a href="https://nownownow.com/about" target="_blank" style="color:var(--bee-yellow); text-decoration:underline;">nownownow.com</a> 启发 —
-                        这一页只写"此刻"。不是"我是谁",也不是"我做过什么",而是——如果你今天约我吃饭,我会跟你聊的那些事。
-                    </p>
+                    <div class="now-date" id="nowDate">UPDATED · 2026.09.08</div>
+                    <div class="now-headline">在成都，推进客服场景下的 <span style="color:var(--bee-yellow)">AI 应用与项目协作</span>。</div>
+                    <p style="color:var(--text-secondary);line-height:1.9;margin-top:18px;">关注业务问题如何被拆解，数据与规则如何支持应用落地，以及团队之间怎样更顺畅地协作。</p>
                 </div>
-
                 <div class="now-grid">
-                    <div class="now-card">
-                        <h3>🎯 工作上在推的</h3>
-                        <ul>
-                            <li>围绕模型能力边界设计评测维度与样本</li>
-                            <li>沉淀 Bad Case,把模糊问题拆成可复盘的评测标准</li>
-                            <li class="done">把业务反馈翻译成模型可优化的方向</li>
-                        </ul>
-                    </div>
-
-                    <div class="now-card">
-                        <h3>📚 在读的书</h3>
-                        <ul>
-                            <li>《高效能人士的七个习惯》 · 35% · 被动→主动</li>
-                            <li>《被讨厌的勇气》 · 60% · 阿德勒让人很上头</li>
-                            <li class="done">《金字塔原理》 · MECE 从此上头</li>
-                        </ul>
-                    </div>
-
-                    <div class="now-card">
-                        <h3>🤖 在折腾的 AI 工具</h3>
-                        <ul>
-                            <li>Cursor + Claude Code 写个人小工具</li>
-                            <li>用 Prompt 工程给模型评测场景建评估集</li>
-                            <li>研究多 Agent 协同怎么不打架</li>
-                        </ul>
-                    </div>
-
-                    <div class="now-card">
-                        <h3>🏃 生活里的</h3>
-                        <ul>
-                            <li>每周 2 次跑步,目标 5K 进 25 分钟</li>
-                            <li>周末在西湖边晃,偶尔骑行到龙井</li>
-                            <li>在攒一个下一次出远门的清单</li>
-                        </ul>
-                    </div>
-
-                    <div class="now-card">
-                        <h3>💭 最近在想的</h3>
-                        <ul>
-                            <li>AI 的 "人味" 到底来自哪里</li>
-                            <li>数据驱动 vs 直觉判断的边界</li>
-                            <li>25 岁之前要不要再换一次赛道</li>
-                        </ul>
-                    </div>
-
-                    <div class="now-card">
-                        <h3>📮 欢迎聊</h3>
-                        <ul>
-                            <li>AI 运营 / Prompt 工程实战</li>
-                            <li>电商策略 / 数据分析</li>
-                            <li>或者就随便聊聊 · 📧 <a href="mailto:s1870567841@163.com" style="color:var(--bee-yellow)">邮件我</a></li>
-                        </ul>
-                    </div>
+                    <div class="now-card"><h3>01 / 工作</h3><p>连接总部与成都团队，围绕客服场景推进 AI 应用和项目协作。把需求讲清楚，也把执行中的问题带回来。</p></div>
+                    <div class="now-card"><h3>02 / 探索</h3><p>继续学习模型评测、训练数据与 AI 产品。关注具体的问题、判断标准，以及下一步可以验证的改进。</p></div>
+                    <div class="now-card"><h3>03 / 创作</h3><p>逐步建立自己的内容账号，记录 AI、职业发展与个人成长中的观察和实践。</p></div>
+                    <div class="now-card"><h3>04 / 联系</h3><p>欢迎交流 AI 应用、数据与业务协作。<a href="contact.html" style="color:var(--bee-yellow)">给我发一条消息 ↗</a></p></div>
                 </div>
-
-                <p style="margin-top:40px; text-align:center; font-family:'Press Start 2P',monospace; font-size:10px; color:var(--text-muted); letter-spacing:2px;">
-                    THIS PAGE IS A <span style="color:var(--bee-yellow)">NOW PAGE</span> · 按 <a href="index.html" style="color:var(--bee-yellow)">回首页</a>
-                </p>
             </div>
         </div>
     </section>
@@ -123,7 +64,7 @@
             <div class="footer-content">
                 <div class="footer-brand"><span class="brand-icon">🐝</span><span class="brand-text">BeeDog</span></div>
                 <p class="footer-description">蜜蜂狗BeeDog的说明书</p>
-                <p class="footer-copyright">© 2025 苏笔辉</p>
+                <p class="footer-copyright">© 2026 苏笔辉</p>
             </div>
         </div>
     </footer>
@@ -133,10 +74,5 @@
 
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
-    <script>
-        const d = new Date();
-        document.getElementById('nowDate').textContent =
-            'UPDATED · ' + d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0');
-    </script>
 </body>
 </html>
