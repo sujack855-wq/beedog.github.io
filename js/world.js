@@ -1,10 +1,10 @@
 (() => {
   'use strict';
   const zones = {
-    lab: { code: '01 / WORK', eyebrow: 'IDEAS INTO PRACTICE', title: 'AI 实验室', description: '从真实业务问题出发，探索数据、规则与 AI 应用怎样一起工作。这里记录我的项目与实践。', links: [ ['portfolio.html', '项目作品集', 'AI 客服训练数据体系 · 电商运营实践'], ['blog-detail-agent-data.html', 'Agent 与数据的关系', '关于数据如何影响 Agent 能力的思考'] ] },
+    lab: { code: '01 / WORK', eyebrow: 'IDEAS INTO PRACTICE', title: 'AI 实验室', description: '从评测标准、Bad Case 归因到 Skill 迭代，记录我在 AI 项目中负责的工作与参与的系统建设。', links: [ ['portfolio.html#ace', 'ACE 自动评测归因', '评测标准 · Prompt 调优 · 复测回归'], ['portfolio.html#skill', '智能客服 Skill 优化', '结构设计 · 知识运维 · 线上问题迭代'], ['portfolio.html', '查看全部项目', '客服 Agent · 图文与语音评测 · 运营实践'] ] },
     log: { code: '02 / JOURNAL', eyebrow: 'THINKING OUT LOUD', title: '信号档案馆', description: '把探索途中的问题写下来。关于 AI、运营和那些值得反复琢磨的想法。', links: [ ['blog.html', '我的博客', 'AI 应用、行业观察与个人思考'], ['books.html', '阅读补给站', '最近在看的书与读书笔记'] ] },
     life: { code: '03 / OFFLINE', eyebrow: 'BEYOND THE SCREEN', title: '星际漫游', description: '屏幕之外，也有值得探索的世界。看看走过的地方，或者在这里停下来，玩一会儿。', links: [ ['travel.html', '我的旅行坐标', '在地图上，回看走过的地方'], ['game.html', '游戏补给舱', '给大脑放个小假'], ['guestbook.html', '留下一条信号', '去留言板留个足迹'] ] },
-    about: { code: '04 / PROFILE', eyebrow: 'MEET THE EXPLORER', title: '驾驶员档案', description: '我是苏笔辉。做过电商运营，现在关注客服场景中的 AI 应用，也在持续学习如何把业务问题变成可执行的方案。', links: [ ['about.html', '认识 BeeDog', '我的经历、能力与兴趣'], ['now.html', '此刻在做什么', '当下的工作与探索方向'], ['contact.html', '建立联系', '聊聊 AI 应用、项目，或一个新想法'] ] }
+    about: { code: '04 / PROFILE', eyebrow: 'MEET THE EXPLORER', title: '驾驶员档案', description: '我是苏笔辉。目前在腾讯（子公司编制）从事大模型评测项目管理，此前有 AI 产品策划、多模态数据训练和电商运营经历。', links: [ ['about.html', '认识 BeeDog', '我的经历、能力与兴趣'], ['now.html', '此刻在做什么', '当下的工作与探索方向'], ['contact.html', '建立联系', '聊聊 AI 应用、项目，或一个新想法'] ] }
   };
   const dialog = document.getElementById('zone-dialog');
   const safeRead = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } };

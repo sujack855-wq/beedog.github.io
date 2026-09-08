@@ -13,7 +13,7 @@ The homepage is now an explorable space outpost, with four destinations for work
 
 ## Content changes
 
-The homepage introduction and NOW page describe the current focus on customer-service AI applications and cross-team collaboration in Chengdu. The NOW date is fixed to the actual edit date. Historical project descriptions and quantitative outcomes have not been revalidated and should be checked against the latest resume before a separate content revision.
+The homepage introduction and NOW page describe the current focus on customer-service AI applications and cross-team collaboration in Chengdu. The NOW date is fixed to the actual edit date. A subsequent content revision aligned the homepage, profile, NOW page and portfolio with the user-provided September resume. It retains the subsidiary employment qualifier, separates individual responsibilities from system outcomes, corrects employment dates, and removes metrics absent from the current resume. These are resume-sourced statements, not independently audited business measurements.
 
 The contact form opens a populated email draft; it does not claim to send messages. Visitors confirm sending in their email application. The guestbook retains its existing browser-only storage behavior.
 

@@ -62,3 +62,54 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media(min-width:1201px) { .nav-menu { display: flex; } .hamburger { display: none; } }
 @media(max-width:640px) { .page-header { padding: 125px 0 40px; } .page-subtitle { letter-spacing: 1px; } .now-grid { grid-template-columns: 1fr; } .now-card { padding: 23px; } .project-content { padding: 24px 18px; } .score-hud { bottom: 8px; right: 8px; transform: scale(.85); transform-origin: bottom right; } }
 @media(prefers-reduced-motion:reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .dust, .spark, .bee-rain-drop, .exp-pop { display: none !important; } }
+
+/* Resume-aligned project and career sections. */
+.career-section { padding: 65px 0; }
+.career-timeline { list-style: none; max-width: 930px; margin: auto; padding: 0; }
+.career-timeline li { display: grid; grid-template-columns: 220px 1fr; gap: 34px; padding: 28px 0; border-bottom: 1px solid #30434c; }
+.career-timeline time { font: 14px/1.9 "SFMono-Regular", Consolas, monospace; color: #b7aa72; }
+.career-timeline h3 { font-size: 22px; font-weight: 600; }
+.career-timeline p { margin: 7px 0 10px; color: #b1c0c6; }
+.career-timeline a { color: #e4cf70; font-size: 14px; text-decoration: none; }
+.resume-portfolio { padding-top: 35px; }
+.project-index { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 32px; border-bottom: 1px solid #30434c; }
+.project-index a { padding: 9px 14px; font-size: 14px; color: #c9d5d8; background: #18272f; border: 1px solid #3a4c55; text-decoration: none; }
+.project-index a:hover { border-color: #e4cf70; color: #e4cf70; }
+.portfolio-heading { padding: 45px 0 38px; max-width: 880px; }
+.portfolio-kicker { color: #d2bc69; font: 12px "SFMono-Regular", Consolas, monospace; letter-spacing: 1px; margin-bottom: 17px; }
+.portfolio-heading h2 { font-size: clamp(24px,3.1vw,37px); line-height: 1.45; margin-bottom: 14px; }
+.portfolio-heading>p:last-child { color: #a7bbc5; font-size: 16px; line-height: 1.8; }
+.resume-project { scroll-margin-top: 110px; margin-bottom: 30px; }
+.resume-project .project-header { padding: 26px 30px; gap: 22px; }
+.project-sequence { font: 21px "SFMono-Regular", Consolas, monospace; color: #e1c96d; align-self: flex-start; padding-top: 4px; }
+.resume-project .project-info h3 { font-size: clamp(22px,2.2vw,29px); color: #f0f2e7; }
+.resume-project .project-content { padding: 30px; }
+.resume-project .project-info .project-time { font-size: 14px; color: #9eafb7; }
+.resume-project .project-description p, .compact-intro { font-size: 16px; line-height: 1.9; color: #b8c7cf; }
+.contribution, .project-outcome { font-size: 16px; line-height: 1.9; color: #bfd0d7; padding: 19px 22px; background: #0d1a21; border-left: 2px solid #837c4e; margin: 22px 0; }
+.contribution strong, .project-outcome strong { display: block; color: #e1ce7e; font-size: 14px; margin-bottom: 6px; }
+.resume-project .achievement-grid { grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 16px; margin: 26px 0; }
+.resume-project .achievement-number { font-size: clamp(25px,3vw,36px); line-height: 1.4; overflow-wrap: anywhere; }
+.resume-project .achievement-label { font-size: 14px; margin-top: 8px; line-height: 1.6; }
+.resume-project .task-list { gap: 13px; margin: 25px 0; }
+.resume-project .task-item { padding: 20px 23px; }
+.resume-project .task-content h4 { font-size: 17px; color: #e9e9d7; margin-bottom: 9px; }
+.resume-project .task-content p { font-size: 16px; line-height: 1.85; }
+.resume-project .skill-tags { margin-top: 22px; }
+.project-expand { margin-top: 17px; }
+.project-expand summary { cursor: pointer; padding: 14px 0; font-size: 15px; color: #e2cd7d; }
+.project-expand summary span { float: right; }
+.project-expand[open] summary span { transform: rotate(45deg); }
+.expanded-content { padding-top: 14px; }
+@media(max-width:640px) {
+  .career-timeline li { grid-template-columns: 1fr; gap: 9px; }
+  .career-section { padding: 40px 0; }
+  .resume-project .project-header { padding: 23px 20px; gap: 12px; flex-wrap: wrap; }
+  .resume-project .project-info { min-width: 0; flex: 1 1 210px; }
+  .resume-project .project-badge { margin-left: 36px; }
+  .resume-project .project-content { padding: 22px 18px; }
+  .resume-project .achievement-grid { grid-template-columns: 1fr; }
+  .resume-project .task-item, .contribution, .project-outcome { padding: 17px; }
+  .project-index { gap: 8px; }
+  .project-index a { padding: 9px 10px; font-size: 13px; }
+}
