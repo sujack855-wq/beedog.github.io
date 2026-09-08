@@ -8,18 +8,22 @@
   <title>BeeDog · 苏笔辉的探索基地</title>
   <link rel="stylesheet" href="css/world.css?v=20260908-console">
   <script src="js/world.js?v=20260908-console" defer></script>
+    <link rel="stylesheet" href="css/site-system.css?v=20260908-unified">
+    <script src="js/site-shell.js?v=20260908-unified" defer></script>
 </head>
-<body>
+<body class="world-page">
   <a class="skip-link" href="#world-nav">跳到探索区域</a>
   <div class="universe" id="universe">
     <div class="world-art" aria-hidden="true"></div>
     <div class="world-shade" aria-hidden="true"></div>
     <div class="scan-line" aria-hidden="true"></div>
-    <header class="mission-header">
-      <a class="wordmark" href="index.html" aria-label="BeeDog 首页"><span class="brand-mark">B<span>·</span></span><span>BeeDog<small>PERSONAL UNIVERSE</small></span></a>
-      <nav class="top-nav" aria-label="主导航"><a href="portfolio.html">作品集 <span>↗</span></a><a href="about.html">关于我</a><a href="blog.html">航行日志</a></nav>
-      <a class="contact-link" href="contact.html"><span class="status-dot"></span>建立联系 <span>↗</span></a>
-    </header>
+    <!-- SITE HEADER -->
+<header class="site-header"><div class="site-bar">
+  <a class="site-brand" href="index.html" aria-label="BeeDog 首页"><span class="site-monogram" aria-hidden="true">B<span>·</span></span><span class="site-brand-name">BeeDog<small>PERSONAL UNIVERSE</small></span></a>
+  <nav class="site-nav" id="site-navigation" aria-label="主导航"><a href="index.html" aria-current="page">首页</a><a href="portfolio.html">作品</a><a href="blog.html">博客</a><a href="books.html">书架</a><a href="travel.html">旅行</a><a href="about.html">关于我</a><details class="site-more"><summary>更多 <span aria-hidden="true">＋</span></summary><div class="site-more-menu"><a href="now.html">NOW · 此刻</a><a href="game.html">小游戏</a><a href="guestbook.html">留言板</a></div></details></nav>
+  <div class="site-header-actions"><a class="site-contact" href="contact.html">建立联系 <span aria-hidden="true">↗</span></a><button class="site-menu-toggle" id="site-menu-toggle" aria-label="打开导航" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button></div>
+</div></header>
+<!-- /SITE HEADER -->
     <main>
       <div class="sector-label"><span class="crosshair">+</span> SECTOR 01 <span class="sector-rule"></span> CHENGDU, EARTH</div>
       <section class="intro" aria-labelledby="hero-title">
@@ -47,7 +51,9 @@
         </div>
       </section>
     </main>
-    <footer class="world-footer"><span>© 2026 苏笔辉 <span class="footer-divider">/</span> BUILT WITH CURIOSITY</span><span class="keyboard-hint">按 <kbd>1</kbd> – <kbd>4</kbd> 探索 <span class="footer-divider">/</span> <kbd>ESC</kbd> 返回</span><button id="motion-toggle" aria-pressed="false">动态效果 <span id="motion-label">开启</span><i aria-hidden="true"></i></button></footer>
+    <!-- SITE FOOTER -->
+<footer class="site-footer"><div class="site-footer-inner"><div class="site-footer-identity"><a href="index.html">BeeDog <span>＋</span></a><span>© 2026 苏笔辉</span></div><nav class="site-footer-links" aria-label="页脚导航"><a href="now.html">NOW</a><a href="game.html">小游戏</a><a href="guestbook.html">留言板</a><a href="contact.html">联系我</a></nav><button class="site-motion" id="motion-toggle" aria-pressed="false">动态效果 <span id="motion-label">开启</span><i aria-hidden="true"></i></button></div></footer>
+<!-- /SITE FOOTER -->
   </div>
   <dialog class="zone-dialog" id="zone-dialog" aria-labelledby="zone-title">
     <div class="dialog-top">
