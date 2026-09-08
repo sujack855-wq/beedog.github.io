@@ -2,7 +2,7 @@
 from pathlib import Path
 import re
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '20260908-unified'
+VERSION = '20260908-comic'
 ROUTES = [('index.html','首页'),('portfolio.html','作品'),('blog.html','博客'),('books.html','书架'),('travel.html','旅行'),('about.html','关于我')]
 MORE = [('now.html','NOW · 此刻'),('game.html','小游戏'),('guestbook.html','留言板')]
 
@@ -12,7 +12,7 @@ def header(page):
     more = ''.join(f'<a href="{path}"'+(' aria-current="page"' if path==active else '')+f'>{label}</a>' for path,label in MORE)
     return f'''<!-- SITE HEADER -->
 <header class="site-header"><div class="site-bar">
-  <a class="site-brand" href="index.html" aria-label="BeeDog 首页"><span class="site-monogram" aria-hidden="true">B<span>·</span></span><span class="site-brand-name">BeeDog<small>PERSONAL UNIVERSE</small></span></a>
+  <a class="site-brand" href="index.html" aria-label="BeeDog 首页"><span class="site-monogram" aria-hidden="true">B<span>·</span></span><span class="site-brand-name">BeeDog<small>STAY CURIOUS / KEEP GOING</small></span></a>
   <nav class="site-nav" id="site-navigation" aria-label="主导航">{links}<details class="site-more"><summary>更多 <span aria-hidden="true">＋</span></summary><div class="site-more-menu">{more}</div></details></nav>
   <div class="site-header-actions"><a class="site-contact" href="contact.html">建立联系 <span aria-hidden="true">↗</span></a><button class="site-menu-toggle" id="site-menu-toggle" aria-label="打开导航" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button></div>
 </div></header>
@@ -50,5 +50,5 @@ for p in sorted(ROOT.glob('*.html')):
     t=t.replace("font-family:'Press Start 2P',monospace",'font-family:var(--bd-mono)')
     t=re.sub(r'font-size:(?:8|9|10|11)px', 'font-size:12px', t)
     t=t.replace('<h1 class="page-title">📚 ', '<h1 class="page-title">').replace('<h1 class="page-title">🗺 ', '<h1 class="page-title">').replace('<h1 class="page-title">🎮 ', '<h1 class="page-title">').replace('<h1 class="page-title">● ', '<h1 class="page-title">')
-    t=t.replace('content="#FFD23F"','content="#0b1115"')
+    t=re.sub(r'content="#(?:FFD23F|0b1115)"', 'content="#211c38"', t)
     p.write_text('\n'.join(line.rstrip() for line in t.splitlines()) + '\n')
