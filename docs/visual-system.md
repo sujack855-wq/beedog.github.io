@@ -6,8 +6,8 @@ This revision follows the user's selected Ticking Away / ONE MORE reference dire
 
 - Ink purple `#211c38`, warm paper `#f3efde`, yellow `#f2ef77`, orange red `#ef6448`.
 - Angular illustrated action, hard offset shadows, thick ink borders, limited halftone accents, oversized italic cover type.
-- Homepage: cover illustration, personal introduction, four navigable chapters. Native dialogs retain chapter navigation, keyboard shortcuts, focus restoration, local progress and reduced-motion preferences.
-- Project page: numbered dark chapter headers, ACE illustrated opening, workflow strip, responsibility and outcome blocks, numbered method panels. Resume facts and the distinction between personal responsibilities and system outcomes are preserved.
+- Homepage: homepage-exclusive cover illustration, personal introduction, four navigable chapters. Native dialogs retain chapter navigation, keyboard shortcuts, focus restoration, local progress and reduced-motion preferences.
+- Project page: numbered dark chapter headers, ACE project-specific four-step feedback diagram, responsibility and outcome blocks, numbered method panels. Resume facts and the distinction between personal responsibilities and system outcomes are preserved.
 - All 16 routes receive the same masthead, footer, theme tokens, buttons and reading surfaces. Existing archive/game/map/guestbook functionality remains.
 
 ## Source responsibilities
